@@ -5,6 +5,7 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import GameField from './GameField';
+import GameControl from './GameControl';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -39,7 +40,7 @@ const Game = () => {
             background: 'linear-gradient(90deg, #092d42,#005672,#2683b1)',
           }}
           >
-            gg
+            <GameControl />
           </Item>
         </Grid>
         <Grid
