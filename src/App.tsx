@@ -5,6 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Login from './components/Login';
 import Game from './components/Game';
+import { SocketControl } from './socket/socket';
 
 const App = () => {
   const navigate = useNavigate();
@@ -12,8 +13,8 @@ const App = () => {
   useEffect(() => {
     const isUser: boolean = !!localStorage.getItem('sessionID');
     if (isUser) {
-      // SocketControl.reconnect();
-      navigate('/mail');
+      SocketControl.reconnect();
+      navigate('/game');
     }
   }, []);
 

@@ -35,6 +35,7 @@
       "react/jsx-props-no-spreading": "off",
       "no-underscore-dangle": ["error", { "allow": ["_id"] }],
       "no-plusplus": "off",
-      "import/no-named-as-default": 0
+      "import/no-named-as-default": 0,
+      "class-methods-use-this": "off"
     }
 }

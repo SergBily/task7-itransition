@@ -28,8 +28,6 @@ body {
 }
 
 :root {
-  --player1: red;
-  --player2: blue;
   --theme: black;
   --borderColor: coral;
 }
@@ -53,8 +51,6 @@ body {
   border: 2px solid blue;
 }
 
-
-
 #output {
   position: absolute;
   color: white;
@@ -63,12 +59,12 @@ body {
   transform: scale(0);
 }
 
-.red {
-  background-color: var(--player1);
+[data-player=toe]{
+  background-color: rgb(238, 241, 29);
 }
 
-.blue {
-  background-color: var(--player2);
+[data-player=cross] {
+  background-color: rgb(241, 29, 206);
 }
 
 @media (max-width: 768px) {
