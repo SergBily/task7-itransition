@@ -1,3 +1,5 @@
+@import './default.scss';
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +12,83 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+:root {
+  --player1: red;
+  --player2: blue;
+  --theme: black;
+  --borderColor: coral;
+}
+
+.container {
+  @include flex();
+}
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 350px;
+  overflow: hidden;
+  gap: 20px
+}
+
+.box {
+  height: 100px;
+  width: 100px;
+  border: 2px solid blue;
+}
+
+
+
+#output {
+  position: absolute;
+  color: white;
+  font-size: 40px;
+  padding: 20px;
+  transform: scale(0);
+}
+
+.red {
+  background-color: var(--player1);
+}
+
+.blue {
+  background-color: var(--player2);
+}
+
+@media (max-width: 768px) {
+  .main {
+    width: 215px;
+    gap: 10px
+  }
+
+  .box {
+    @include wh(65px, 65px)
+  }
+}
+
+@media (min-width: 1440px) {
+  .main {
+    width: 400px;
+    gap: 10px
+  }
+
+  .box {
+    @include wh(120px, 120px)
+  }
 }
