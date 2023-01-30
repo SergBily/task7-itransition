@@ -4,12 +4,13 @@ import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 import { Container } from '@mui/system';
-import { Link } from 'react-router-dom';
-// import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { SocketControl } from '../socket/socket';
 
 const Login = () => {
   const [name, setName] = useState<string>('');
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const changeHandler = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setName(event.target.value);
@@ -17,14 +18,10 @@ const Login = () => {
 
   const hendleOnSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // const response = await AuthService.login(name);
-    // const { data } = response;
-    // if (response.status === 200) {
-    //   toast.success('You are sign in!', { autoClose: 2000, position: 'bottom-right' });
-    //   navigate('/mail');
-    // } else {
-    //   toast.error('Error try again!', { autoClose: 2000, position: 'bottom-right' });
-    // }
+    localStorage.setItem('name', name);
+    SocketControl.setUserName(name);
+    toast.success('You are sign in!', { autoClose: 2000, position: 'bottom-right' });
+    navigate('/game');
   };
 
   return (
@@ -54,11 +51,9 @@ const Login = () => {
                   />
                 </Grid>
                 <Grid item>
-                  <Link to="/game">
-                    <Button type="submit" variant="contained" fullWidth className="sign__btn">
-                      Sign in
-                    </Button>
-                  </Link>
+                  <Button type="submit" variant="contained" fullWidth className="sign__btn">
+                    Sign in
+                  </Button>
                 </Grid>
               </Grid>
             </Paper>
